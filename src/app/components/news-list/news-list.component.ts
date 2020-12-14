@@ -8,12 +8,14 @@ import { NewsService } from 'src/app/services/news.service';
 })
   
 export class NewsListComponent implements OnInit {
-
+  articles: any[];
+  
   constructor(private newsService: NewsService) { }
 
   ngOnInit(): void {
     this.newsService.getTopHeadlines("us").subscribe(news => {
-      console.log(news);
+      this.articles = news["articles"];
+      console.log(this.articles);
     });
   }
 
