@@ -18,10 +18,14 @@ export class NewsListComponent implements OnInit {
     console.log(category);
 
     if (category.slice(1).length === 0) {
-      this.newsService.getTopHeadlines("us").subscribe(news => {
-        this.articles = news.articles;
-        console.log(this.articles);
-      });
+      this.displayTopHeadlines();
     }
+  }
+
+  displayTopHeadlines() {
+    this.newsService.getTopHeadlines("us").subscribe(news => {
+      this.articles = news.articles;
+      console.log(this.articles);
+    });
   }
 }
