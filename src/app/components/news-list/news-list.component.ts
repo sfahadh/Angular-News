@@ -14,7 +14,7 @@ export class NewsListComponent implements OnInit {
 
   ngOnInit(): void {
     this.newsService.getTopHeadlines("us").subscribe(news => {
-      this.articles = news["articles"];
+      this.articles = news.articles;
       console.log(this.articles);
     });
   }
