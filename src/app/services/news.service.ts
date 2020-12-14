@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -9,9 +10,9 @@ export class NewsService {
   private URL = "https://newsapi.org/v2/";
   private categories = ["top-headlines", "everything", "sources"];
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getTopHeadlines(country: string) {
-    return `${this.URL}/top-headlines?country=${country}&apiKey=${this.API_KEY}`;
+    return this.http.get(`${this.URL}/top-headlines?country=${country}&apiKey=${this.API_KEY}`);
   }
 }
