@@ -10,22 +10,29 @@ import { NewsService } from 'src/app/services/news.service';
   
 export class NewsListComponent implements OnInit {
   articles: any[];
+  category: string;
   
   constructor(private newsService: NewsService, private router: Router) { }
 
   ngOnInit(): void {
-    const category = this.router.url;
-    console.log(category);
+    this.category = this.router.url.slice(1);
 
-    if (category.slice(1).length === 0) {
+    if (this.category.length === 0) {
       this.displayTopHeadlines();
+    } else {
+      this.displayArticlesByCategory();
     }
   }
 
   displayTopHeadlines() {
-    this.newsService.getTopHeadlines("us").subscribe(news => {
+    this.newsService.getTopHeadlines().subscribe(news => {
       this.articles = news.articles;
-      console.log(this.articles);
     });
+  }
+
+  displayArticlesByCategory() {
+    this.newsService.getArticlesByCategory(this.category).subscribe(news => {
+      this.articles = news.articles;
+    })
   }
 }
