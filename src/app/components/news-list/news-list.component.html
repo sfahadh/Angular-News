@@ -1,1 +1,7 @@
-<p>news-list works!</p>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-4 mt-4" *ngFor="let article of articles">
+            <app-news [article]="article"></app-news>
+        </div>
+    </div>
+</div>
