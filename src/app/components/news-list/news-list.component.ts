@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { NewsService } from 'src/app/services/news.service';
 
 @Component({
@@ -10,13 +11,17 @@ import { NewsService } from 'src/app/services/news.service';
 export class NewsListComponent implements OnInit {
   articles: any[];
   
-  constructor(private newsService: NewsService) { }
+  constructor(private newsService: NewsService, private router: Router) { }
 
   ngOnInit(): void {
-    this.newsService.getTopHeadlines("us").subscribe(news => {
-      this.articles = news.articles;
-      console.log(this.articles);
-    });
-  }
+    const category = this.router.url;
+    console.log(category);
 
+    if (category.slice(1).length === 0) {
+      this.newsService.getTopHeadlines("us").subscribe(news => {
+        this.articles = news.articles;
+        console.log(this.articles);
+      });
+    }
+  }
 }
