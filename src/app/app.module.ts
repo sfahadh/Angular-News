@@ -8,6 +8,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { NewsListComponent } from './components/news-list/news-list.component';
 import { NewsComponent } from './components/news/news.component';
 import { FilterComponent } from './components/filter/filter.component';
+import { FilterPublisherPipe } from './pipes/filter-publisher.pipe';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { FilterComponent } from './components/filter/filter.component';
     NavbarComponent,
     NewsListComponent,
     NewsComponent,
-    FilterComponent
+    FilterComponent,
+    FilterPublisherPipe
   ],
   imports: [
     BrowserModule,
