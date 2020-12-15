@@ -2,12 +2,12 @@
     <div class="row">
         <div class="col-md-6 mb-3">
             <input type="text" class="form-control" placeholder="search by publisher"
-                name="publisher" [(ngModel)]="publisher">
+                name="publisher" [(ngModel)]="publisher" (keyup)="sendPublisherInput(publisher)">
         </div>
 
         <div class="col-md-6 mb-3">
             <input type="text" class="form-control" placeholder="search by title"
-                name="title" [(ngModel)]="title">
+                name="title" [(ngModel)]="title" (keyup)="sendTitleInput(title)">
         </div>
     </div>
 </div>

@@ -11,6 +11,8 @@ import { NewsService } from 'src/app/services/news.service';
 export class NewsListComponent implements OnInit {
   articles: any[];
   category: string;
+  title: string;
+  publisher: string;
   
   constructor(private newsService: NewsService, private router: Router) { }
 
