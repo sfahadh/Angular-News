@@ -9,6 +9,7 @@ import { NewsListComponent } from './components/news-list/news-list.component';
 import { NewsComponent } from './components/news/news.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { FilterPublisherPipe } from './pipes/filter-publisher.pipe';
+import { FilterTitlePipe } from './pipes/filter-title.pipe';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { FilterPublisherPipe } from './pipes/filter-publisher.pipe';
     NewsListComponent,
     NewsComponent,
     FilterComponent,
-    FilterPublisherPipe
+    FilterPublisherPipe,
+    FilterTitlePipe
   ],
   imports: [
     BrowserModule,
