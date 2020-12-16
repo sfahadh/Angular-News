@@ -9,7 +9,7 @@ import { NewsService } from 'src/app/services/news.service';
 })
   
 export class NewsListComponent implements OnInit {
-  articles: any[];
+  articles: any[] = [];
   category: string;
   title: string;
   publisher: string;
